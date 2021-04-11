@@ -1,5 +1,5 @@
-import "./App.css";
-import Header from "./Components/Header";
+import "./App.scss";
+import Form from "./Components/Form";
 
 import React, { Component } from "react";
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
+        <Form />
       </div>
     );
   }
