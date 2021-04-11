@@ -27,7 +27,7 @@ class Form extends Component {
     return (
       <form className="Form">
         <Header handleChange={this.handleChange} />
-        {/* <Experience handleChange={this.handleChange} /> */}
+        <Experience handleChange={this.handleChange} />
       </form>
     );
   }
