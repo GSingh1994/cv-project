@@ -1,7 +1,6 @@
 const Experience = ({ handleChange }) => {
   return (
     <div className="Experience">
-      <h2>Work Experience</h2>
       <div>
         <label htmlFor="employer">Employer</label>
         <input name="employer" onChange={handleChange} type="text" />
