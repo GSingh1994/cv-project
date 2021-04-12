@@ -1,7 +1,6 @@
 const Title = ({ handleChange }) => {
   return (
     <div className="Header">
-      <h2>Personal details</h2>
       <div>
         <label htmlFor="name">Name:</label>
         <input name="name" onChange={handleChange} type="text" />

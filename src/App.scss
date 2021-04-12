@@ -9,28 +9,26 @@
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: #d8e3e7;
+}
 .Form {
-  margin-top: 2rem;
-  width: 25rem;
-  background-color: tomato;
+  width: 30rem;
+  background-color: #f8f5f1;
   text-align: center;
-  padding: 1rem;
+  padding: 0 1rem;
   border-radius: 4px;
-  margin-left: 1rem;
+  margin: 2rem;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   .Header,
-  .Experience {
-    height: 10rem;
+  .Experience,
+  .Education {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    input {
-      border: none;
-      outline: none;
-      font-size: 1.2rem;
-    }
-    label {
-      font-size: 1.2rem;
-    }
+    gap: 0.5rem;
     div {
       display: flex;
       justify-content: space-between;
@@ -39,5 +37,18 @@
   button {
     padding: 0.4rem;
     font-size: 1.1rem;
+    width: 7rem;
+    margin: 0.5rem auto;
+  }
+  input {
+    border: dashed 0.5px;
+    outline: none;
+    font-size: 1.2rem;
+  }
+  label {
+    font-size: 1.2rem;
+  }
+  .heading {
+    margin: 1rem 0;
   }
 }
