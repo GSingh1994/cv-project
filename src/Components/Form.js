@@ -9,14 +9,14 @@ class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      website: "",
-      address: "",
-      email: "",
-      employer: "",
-      jobTitle: "",
-      startJob: "",
-      endJob: "",
+      name: "Gagandeep Singh",
+      website: "gagansingh.dev",
+      address: "123 st. mary's rd.",
+      email: "singh.gagandeep0034@gmail.com",
+      employer: "A&W Restaurant",
+      jobTitle: "Supervisor",
+      startJob: "2021-08",
+      endJob: "2021-08",
       jobDuties: "",
       totalExp: [],
       startSchool: "",
@@ -49,7 +49,18 @@ class Form extends Component {
     }));
   }
   render() {
-    const { name, website, address, email, totalExp, totalSchool } = this.state;
+    const {
+      name,
+      website,
+      address,
+      email,
+      employer,
+      jobTitle,
+      startJob,
+      endJob,
+      totalExp,
+      totalSchool,
+    } = this.state;
     return (
       <>
         <div className="Form">
@@ -70,6 +81,10 @@ class Form extends Component {
             website={website}
             address={address}
             email={email}
+            employer={employer}
+            jobTitle={jobTitle}
+            startJob={startJob}
+            endJob={endJob}
           />
         </div>
       </>
