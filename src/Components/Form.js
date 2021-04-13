@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import Experience from "./Experience";
 import Education from "./Education";
+import CvPage from "./CvPage";
 const uniqid = require("uniqid");
 
 class Form extends Component {
@@ -9,9 +10,9 @@ class Form extends Component {
     super(props);
     this.state = {
       name: "",
-      lastName: "",
       website: "",
       address: "",
+      email: "",
       employer: "",
       jobTitle: "",
       startJob: "",
@@ -48,20 +49,30 @@ class Form extends Component {
     }));
   }
   render() {
-    const { totalExp, totalSchool } = this.state;
+    const { name, website, address, email, totalExp, totalSchool } = this.state;
     return (
-      <div className="Form">
-        <h2 className="heading">Personal details</h2>
-        <Header handleChange={this.handleChange} />
+      <>
+        <div className="Form">
+          <h2 className="heading">Personal details</h2>
+          <Header handleChange={this.handleChange} />
 
-        <h2 className="heading">Work Experience</h2>
-        <div>{totalExp}</div>
-        <button onClick={this.addExp}>newJob</button>
+          <h2 className="heading">Work Experience</h2>
+          <div>{totalExp}</div>
+          <button onClick={this.addExp}>newJob</button>
 
-        <h2 className="heading">Education</h2>
-        <div>{totalSchool}</div>
-        <button onClick={this.addSchool}>newSchool</button>
-      </div>
+          <h2 className="heading">Education</h2>
+          <div>{totalSchool}</div>
+          <button onClick={this.addSchool}>newSchool</button>
+        </div>
+        <div>
+          <CvPage
+            name={name}
+            website={website}
+            address={address}
+            email={email}
+          />
+        </div>
+      </>
     );
   }
 }
