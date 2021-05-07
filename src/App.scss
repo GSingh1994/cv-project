@@ -20,7 +20,7 @@ body {
   text-align: center;
   padding: 0 1rem;
   border-radius: 4px;
-  margin: 2rem;
+  // margin: 2rem;
   border: 2px solid black;
   display: flex;
   flex-direction: column;
@@ -58,7 +58,8 @@ body {
 .CvPage {
   border: 1px solid red;
   width: 40rem;
-  position: absolute;
+  margin-top: 1rem;
+  // position: absolute;
   right: 2rem;
   top: 2rem;
   height: 40rem;

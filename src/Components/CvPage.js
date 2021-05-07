@@ -33,13 +33,13 @@ const CvPage = ({
 
       <div className="cv-experience-section">
         <h1>Work Experience</h1>
-        <div className="employer">{employer}</div>
+        <div className="employer"> employer: {employer}</div>
 
-        <div className="jobTitle">{jobTitle}</div>
+        <div className="jobTitle">jobTitle: {jobTitle}</div>
 
-        <div className="startJob">{startJob}</div>
+        <div className="startJob">startJob: {startJob}</div>
 
-        <div className="endJob">{endJob}</div>
+        <div className="endJob">endJob: {endJob}</div>
       </div>
     </div>
   );

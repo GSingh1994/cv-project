@@ -1,13 +1,23 @@
-const Experience = ({ handleChange }) => {
+const Experience = ({ handleChange, values }) => {
   return (
     <div className="Experience">
       <div>
         <label htmlFor="employer">Employer</label>
-        <input name="employer" onChange={handleChange} type="text" />
+        <input
+          name="employer"
+          value={values.employer}
+          onChange={handleChange}
+          type="text"
+        />
       </div>
       <div>
         <label htmlFor="jobTitle">jobTitle</label>
-        <input name="jobTitle" onChange={handleChange} type="text" />
+        <input
+          name="jobTitle"
+          value={values.jobTitle}
+          onChange={handleChange}
+          type="text"
+        />
       </div>
       <div id="date">
         <label htmlFor="startJob">From:</label>
@@ -15,7 +25,7 @@ const Experience = ({ handleChange }) => {
           onChange={handleChange}
           type="month"
           name="startJob"
-          value="2021-01"
+          value={values.startJob}
         />
       </div>
       <div id="date">
@@ -24,16 +34,18 @@ const Experience = ({ handleChange }) => {
           onChange={handleChange}
           type="month"
           name="endJob"
-          value="2021-05"
+          value={values.endJob}
         />
       </div>
-      <label htmlFor="jobDuties">jobDuties</label>
+
+      {/* <label htmlFor="jobDuties">jobDuties</label>
       <textarea
         name="jobDuties"
         onChange={handleChange}
+        value={values.jobDuties}
         cols="15"
         rows="5"
-      ></textarea>
+      ></textarea> */}
     </div>
   );
 };

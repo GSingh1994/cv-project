@@ -1,95 +1,57 @@
-import React, { Component } from "react";
+import { useState } from "react";
 import Header from "./Header";
 import Experience from "./Experience";
 import Education from "./Education";
 import CvPage from "./CvPage";
 const uniqid = require("uniqid");
 
-class Form extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "Gagandeep Singh",
-      website: "gagansingh.dev",
-      address: "123 st. mary's rd.",
-      email: "singh.gagandeep0034@gmail.com",
-      employer: "A&W Restaurant",
-      jobTitle: "Supervisor",
-      startJob: "2021-08",
-      endJob: "2021-08",
-      jobDuties: "",
-      totalExp: [],
-      startSchool: "",
-      endSchool: "",
-      totalSchool: [],
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.addExp = this.addExp.bind(this);
-    this.addSchool = this.addSchool.bind(this);
-  }
-  handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  }
-  addExp() {
-    let exp = () => (
-      <Experience key={uniqid()} handleChange={this.handleChange} />
-    );
-    this.setState((preState) => ({
-      totalExp: [...preState.totalExp, exp()],
-    }));
-  }
-  addSchool() {
-    let school = () => (
-      <Education key={uniqid()} handleChange={this.handleChange} />
-    );
-    this.setState((preState) => ({
-      totalSchool: [...preState.totalSchool, school()],
-    }));
-  }
-  render() {
-    const {
-      name,
-      website,
-      address,
-      email,
-      employer,
-      jobTitle,
-      startJob,
-      endJob,
-      totalExp,
-      totalSchool,
-    } = this.state;
-    return (
-      <>
-        <div className="Form">
-          <h2 className="heading">Personal details</h2>
-          <Header handleChange={this.handleChange} />
+const intialInputs = {
+  name: "",
+  website: "",
+  address: "",
+  email: "",
+  employer: "",
+  jobTitle: "",
+  startJob: "",
+  endJob: "",
+};
 
-          <h2 className="heading">Work Experience</h2>
-          <div>{totalExp}</div>
-          <button onClick={this.addExp}>newJob</button>
+const Form = () => {
+  const [values, setValues] = useState(intialInputs);
 
-          <h2 className="heading">Education</h2>
-          <div>{totalSchool}</div>
-          <button onClick={this.addSchool}>newSchool</button>
-        </div>
-        <div>
-          <CvPage
-            name={name}
-            website={website}
-            address={address}
-            email={email}
-            employer={employer}
-            jobTitle={jobTitle}
-            startJob={startJob}
-            endJob={endJob}
-          />
-        </div>
-      </>
-    );
-  }
-}
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
+  };
+
+  const addExperience = () => {
+    console.log(exp);
+  };
+
+  const expElement = <Experience handleChange={handleChange} values={values} />;
+  const [exp, setExp] = useState([expElement]);
+
+  return (
+    <div className="Form">
+      <h2 className="heading">Personal details</h2>
+      <Header handleChange={handleChange} values={values} />
+      <h2 className="heading">Work Experience</h2>
+      <Experience handleChange={handleChange} values={values} />;
+      <button onClick={addExperience}>newJob</button>
+      <div>
+        <CvPage
+          name={values.name}
+          website={values.website}
+          address={values.address}
+          email={values.email}
+          employer={values.employer}
+          jobTitle={values.jobTitle}
+          startJob={values.startJob}
+          endJob={values.endJob}
+        />
+      </div>
+    </div>
+  );
+};
 
 export default Form;
