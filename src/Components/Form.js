@@ -22,11 +22,8 @@ const Form = () => {
 
   return (
     <div className="Form">
-      <h2 className="heading">Personal details</h2>
       <Header headerValues={headerValues} />
-      <h2 className="heading">Work Experience</h2>
       <Experience experienceValues={experienceValues} />
-      <div className="heading">Education</div>
       <Education educationValues={educationValues} />
       <div>
         <CvPage

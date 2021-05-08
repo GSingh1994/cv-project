@@ -41,8 +41,15 @@ const Experience = ({ experienceValues }) => {
 
   return (
     <div className="Experience">
+      <h2 className="heading">Work Experience</h2>
       {inputFields.map((inputField, index) => (
-        <div key={index}>
+        <fieldset className="exp-field" key={index}>
+          <button
+            className="button button-clear delete-btn"
+            onClick={() => removeExp(index)}
+          >
+            DELETE
+          </button>
           <label htmlFor="employer">
             Employer
             <input
@@ -86,14 +93,12 @@ const Experience = ({ experienceValues }) => {
             name="jobDuties"
             onChange={(e) => handleChange(e, index)}
             value={inputField.jobDuties}
-            cols="15"
-            rows="5"
           ></textarea>
-
-          <button onClick={() => removeExp(index)}> - </button>
-        </div>
+        </fieldset>
       ))}
-      <button onClick={addMoreExp}>Add</button>
+      <button className="add-btn" onClick={addMoreExp}>
+        Add
+      </button>
     </div>
   );
 };

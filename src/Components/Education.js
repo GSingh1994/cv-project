@@ -40,8 +40,15 @@ const Education = ({ educationValues }) => {
 
   return (
     <div className="Education">
+      <h2 className="heading">Education</h2>
       {inputFields.map((input, index) => (
-        <div key={index}>
+        <fieldset className="edu-field" key={index}>
+          <button
+            className="button button-clear delete-btn"
+            onClick={() => removeEdu(index)}
+          >
+            DELETE
+          </button>
           <label htmlFor="school">school</label>
           <input
             value={input.school}
@@ -73,10 +80,11 @@ const Education = ({ educationValues }) => {
             value={input.endSchool}
             name="endSchool"
           />
-          <button onClick={() => removeEdu(index)}> - </button>
-        </div>
+        </fieldset>
       ))}
-      <button onClick={addMoreEdu}>Add</button>
+      <button className="add-btn" onClick={addMoreEdu}>
+        Add
+      </button>
     </div>
   );
 };

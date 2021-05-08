@@ -19,44 +19,40 @@ const Header = ({ headerValues }) => {
 
   return (
     <div className="Header">
-      <div className="Header">
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input
-            name="name"
-            value={values.name}
-            onChange={handleChange}
-            type="text"
-          />
-        </div>
-        <div>
-          <label htmlFor="website">Website:</label>
-          <input
-            name="website"
-            value={values.website}
-            onChange={handleChange}
-            type="text"
-          />
-        </div>
-        <div>
-          <label htmlFor="address">address:</label>
-          <input
-            name="address"
-            value={values.address}
-            onChange={handleChange}
-            type="text"
-          />
-        </div>
-        <div>
-          <label htmlFor="email">email:</label>
-          <input
-            name="email"
-            value={values.email}
-            type="email"
-            onChange={handleChange}
-          />
-        </div>
-      </div>
+      <h2 className="heading">Personal details</h2>
+      <fieldset>
+        <label htmlFor="name">Name:</label>
+        <input
+          name="name"
+          value={values.name}
+          onChange={handleChange}
+          type="text"
+        />
+
+        <label htmlFor="website">Website:</label>
+        <input
+          name="website"
+          value={values.website}
+          onChange={handleChange}
+          type="text"
+        />
+
+        <label htmlFor="address">address:</label>
+        <input
+          name="address"
+          value={values.address}
+          onChange={handleChange}
+          type="text"
+        />
+
+        <label htmlFor="email">email:</label>
+        <input
+          name="email"
+          value={values.email}
+          type="email"
+          onChange={handleChange}
+        />
+      </fieldset>
     </div>
   );
 };
