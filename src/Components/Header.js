@@ -1,4 +1,22 @@
-const Title = ({ handleChange, values }) => {
+import { useState, useEffect } from "react";
+
+const Header = ({ headerValues }) => {
+  const [values, setValues] = useState({
+    name: "",
+    website: "",
+    address: "",
+    email: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
+  };
+
+  useEffect(() => {
+    headerValues(values);
+  }, [values]);
+
   return (
     <div className="Header">
       <div className="Header">
@@ -43,4 +61,4 @@ const Title = ({ handleChange, values }) => {
   );
 };
 
-export default Title;
+export default Header;

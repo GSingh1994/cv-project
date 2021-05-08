@@ -3,51 +3,36 @@ import Header from "./Header";
 import Experience from "./Experience";
 import Education from "./Education";
 import CvPage from "./CvPage";
-const uniqid = require("uniqid");
-
-const intialInputs = {
-  name: "",
-  website: "",
-  address: "",
-  email: "",
-  employer: "",
-  jobTitle: "",
-  startJob: "",
-  endJob: "",
-};
 
 const Form = () => {
-  const [values, setValues] = useState(intialInputs);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
+  const [headerState, setheaderState] = useState([]);
+  const headerValues = (values) => {
+    setheaderState({ ...values });
   };
 
-  const addExperience = () => {
-    console.log(exp);
+  const [expState, setExpState] = useState([]);
+  const experienceValues = (values) => {
+    setExpState(values);
   };
 
-  const expElement = <Experience handleChange={handleChange} values={values} />;
-  const [exp, setExp] = useState([expElement]);
+  const [eduState, setEduState] = useState([]);
+  const educationValues = (values) => {
+    setEduState(values);
+  };
 
   return (
     <div className="Form">
       <h2 className="heading">Personal details</h2>
-      <Header handleChange={handleChange} values={values} />
+      <Header headerValues={headerValues} />
       <h2 className="heading">Work Experience</h2>
-      <Experience handleChange={handleChange} values={values} />;
-      <button onClick={addExperience}>newJob</button>
+      <Experience experienceValues={experienceValues} />
+      <div className="heading">Education</div>
+      <Education educationValues={educationValues} />
       <div>
         <CvPage
-          name={values.name}
-          website={values.website}
-          address={values.address}
-          email={values.email}
-          employer={values.employer}
-          jobTitle={values.jobTitle}
-          startJob={values.startJob}
-          endJob={values.endJob}
+          headerState={headerState}
+          expState={expState}
+          eduState={eduState}
         />
       </div>
     </div>
