@@ -1,4 +1,5 @@
-// import "./App.scss";
+import "../node_modules/nes.css/css/nes.min.css";
+import "./App.scss";
 import Form from "./Components/Form";
 
 const App = () => {

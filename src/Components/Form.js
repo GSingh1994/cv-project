@@ -22,12 +22,21 @@ const Form = () => {
 
   return (
     <div className="Form">
-      <h2 className="heading">Personal details</h2>
-      <Header headerValues={headerValues} />
-      <h2 className="heading">Work Experience</h2>
-      <Experience experienceValues={experienceValues} />
-      <div className="heading">Education</div>
-      <Education educationValues={educationValues} />
+      <div className="nes-container with-title">
+        <span className="title">Personal details</span>
+        <Header headerValues={headerValues} />
+      </div>
+
+      <div className="nes-container with-title">
+        <span className="title">Work Experience</span>
+        <Experience experienceValues={experienceValues} />
+      </div>
+
+      <div className="nes-container with-title">
+        <span className="title">Education</span>
+        <Education educationValues={educationValues} />
+      </div>
+
       <div>
         <CvPage
           headerState={headerState}
