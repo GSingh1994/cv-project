@@ -34,18 +34,19 @@ const CvPage = ({ headerState, expState, eduState }) => {
           <div className="startJob">startJob: {exp.startJob}</div>
 
           <div className="endJob">endJob: {exp.endJob}</div>
+          <div>Job duties:{exp.jobDuties}</div>
         </div>
       ))}
       {eduState.map((edu) => (
         <div key={uniqid()} className="cv-experience-section">
           <h1>Education</h1>
-          <div className="employer"> employer: {edu.school}</div>
+          <div> School: {edu.school}</div>
 
-          <div className="jobTitle">jobTitle: {edu.degree}</div>
+          <div>Degree: {edu.degree}</div>
 
-          <div className="startJob">startJob: {edu.startSchool}</div>
+          <div>Start date: {edu.startSchool}</div>
 
-          <div className="endJob">endJob: {edu.endSchool}</div>
+          <div>End date: {edu.endSchool}</div>
         </div>
       ))}
     </div>

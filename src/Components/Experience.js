@@ -7,6 +7,7 @@ const Experience = ({ experienceValues }) => {
       jobTitle: "",
       startJob: "",
       endJob: "",
+      jobDuties: "",
     },
   ]);
 
@@ -29,6 +30,7 @@ const Experience = ({ experienceValues }) => {
         jobTitle: "",
         startJob: "",
         endJob: "",
+        jobDuties: "",
       },
     ]);
   };
