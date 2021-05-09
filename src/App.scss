@@ -1,8 +1,40 @@
+$black: #20252b;
+$white: #ffffff;
+$golden: #ffd600;
+
+body {
+  background-color: $black;
+  color: $white;
+}
+
 .App {
-  width: 60rem;
+  margin: 10rem 15rem;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  .form,
+  .cv {
+    width: 45%;
+  }
+  .cv {
+    position: fixed;
+    right: 15rem;
+  }
+  input,
+  textarea {
+    color: $white;
+    margin-bottom: 1.5rem;
+    &:focus {
+      border-color: $golden;
+    }
+  }
+  label {
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+  }
   .heading {
-    // text-align: center;
-    margin-top: 2rem;
+    color: $golden;
+    letter-spacing: 0.1rem;
   }
   .edu-field,
   .exp-field {
@@ -12,76 +44,114 @@
     position: absolute;
     right: 0.3rem;
     top: 0;
-    color: red;
+    color: #f55c47;
+    transition: 0.3s all ease;
+    &:hover {
+      color: #fb3640;
+    }
   }
   .add-btn {
     display: flex;
-    justify-content: center;
     align-items: center;
     margin: 0 auto;
+    color: $golden;
+    border: 1px solid $golden;
+    transition: 0.3s all ease;
+    &:hover {
+      background-color: $golden;
+      color: $black;
+    }
   }
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.Experience,
+.Education,
+.Header {
+  border: 1px dotted rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  .logo {
+    display: flex;
+    gap: 1rem;
+    img {
+      width: 3.5rem;
+      filter: invert(100%);
+      margin-left: 2rem;
+    }
+  }
+  .form-time,
+  .form-location {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    div {
+      width: 40%;
+    }
+  }
+}
+.Header {
+  padding-bottom: 0;
+  fieldset {
+    padding-bottom: 0;
+  }
+}
+.Education {
+  margin-top: 2rem;
 }
 
 .CvPage {
-  border: 1px solid gray;
-  width: 70rem;
   margin-top: 1rem;
-  @media (min-width: 80rem) {
-    position: absolute;
-    right: 2rem;
-    top: 2rem;
-  }
+  background-color: $white;
+  color: black;
   .cv-header {
-    background-color: black;
-    color: white;
-    padding: 2.5rem;
-    div {
-      margin: 0.5rem;
+    background-color: #373d48;
+    color: $white;
+    padding: 2.3rem 5rem;
+    h1 {
+      font-weight: bold;
+      letter-spacing: 0.1rem;
+      font-size: 4.3rem;
+      margin: 1rem 0 2rem 0;
     }
-    // .name {
-    //   font-size: 2.5rem;
-    //   font-weight: bold;
-    // }
+    .personal-info {
+      display: flex;
+      margin-bottom: 0.8rem;
+      img {
+        width: 2rem;
+        filter: invert(100%);
+        margin-right: 1rem;
+      }
+    }
+  }
+  .cv-body {
+    padding: 2rem 5rem;
+    h1 {
+      border-bottom: 1px solid #373d48;
+      padding-bottom: 0.5rem;
+    }
+    .cv-experience,
+    .cv-education {
+      display: grid;
+      grid-template-columns: 2fr 2fr 2fr;
+      margin-bottom: 2rem;
+      .cv-location {
+        text-align: right;
+      }
+    }
   }
 }
 
-// .Form {
-//   width: 30rem;
-//   background-color: #f8f5f1;
-//   text-align: center;
-//   padding: 0 1rem;
-//   border-radius: 4px;
-//   // margin: 2rem;
-//   border: 2px solid black;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   .Header,
-//   .Experience,
-//   .Education {
-//     display: flex;
-//     flex-direction: column;
-//     gap: 0.5rem;
-//     div {
-//       display: flex;
-//       justify-content: space-between;
-//     }
-//   }
-//   button {
-//     padding: 0.4rem;
-//     font-size: 1.1rem;
-//     width: 7rem;
-//     margin: 0.5rem auto;
-//   }
-//   input {
-//     border: dashed 0.5px;
-//     outline: none;
-//     font-size: 1.2rem;
-//   }
-//   label {
-//     font-size: 1.2rem;
-//   }
-//   .heading {
-//     margin: 1rem 0;
-//   }
-// }
+.bold {
+  font-weight: bold;
+}

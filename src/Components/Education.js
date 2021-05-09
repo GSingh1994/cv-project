@@ -1,14 +1,8 @@
 import { useState, useEffect } from "react";
+import eduLogo from "../assets/edu.svg";
 
 const Education = ({ educationValues }) => {
-  const [inputFields, setInputFields] = useState([
-    {
-      school: "",
-      degree: "",
-      startSchool: "",
-      endSchool: "",
-    },
-  ]);
+  const [inputFields, setInputFields] = useState([]);
   const handleChange = (e, index) => {
     const { name, value } = e.target;
     const values = [...inputFields];
@@ -28,6 +22,8 @@ const Education = ({ educationValues }) => {
         degree: "",
         startSchool: "",
         endSchool: "",
+        city: "",
+        province: "",
       },
     ]);
   };
@@ -40,23 +36,24 @@ const Education = ({ educationValues }) => {
 
   return (
     <div className="Education">
-      <h2 className="heading">Education</h2>
+      <div className="logo">
+        <img src={eduLogo} alt="" /> <h1 className="heading">Education</h1>
+      </div>
       {inputFields.map((input, index) => (
         <fieldset className="edu-field" key={index}>
           <button
-            className="button button-clear delete-btn"
+            className="button-clear delete-btn"
             onClick={() => removeEdu(index)}
           >
             DELETE
           </button>
-          <label htmlFor="school">school</label>
+          <label htmlFor="school">School:</label>
           <input
             value={input.school}
             name="school"
             onChange={(e) => handleChange(e, index)}
             type="text"
           />
-
           <label htmlFor="degree">degree</label>
           <input
             value={input.degree}
@@ -64,25 +61,49 @@ const Education = ({ educationValues }) => {
             onChange={(e) => handleChange(e, index)}
             type="text"
           />
-
-          <label htmlFor="startSchool">From:</label>
-          <input
-            onChange={(e) => handleChange(e, index)}
-            type="month"
-            value={input.startSchool}
-            name="startSchool"
-          />
-
-          <label htmlFor="endSchool">To:</label>
-          <input
-            onChange={(e) => handleChange(e, index)}
-            type="month"
-            value={input.endSchool}
-            name="endSchool"
-          />
+          <div className="form-location">
+            <div>
+              <label htmlFor="city">City</label>
+              <input
+                name="city"
+                value={input.city}
+                onChange={(e) => handleChange(e, index)}
+                type="text"
+              />
+            </div>
+            <div>
+              <label htmlFor="province">Province</label>
+              <input
+                name="province"
+                value={input.province}
+                onChange={(e) => handleChange(e, index)}
+                type="text"
+              />
+            </div>
+          </div>
+          <div className="form-time">
+            <div>
+              <label htmlFor="startSchool">From:</label>
+              <input
+                onChange={(e) => handleChange(e, index)}
+                type="month"
+                value={input.startSchool}
+                name="startSchool"
+              />
+            </div>
+            <div>
+              <label htmlFor="endSchool">To:</label>
+              <input
+                onChange={(e) => handleChange(e, index)}
+                type="month"
+                value={input.endSchool}
+                name="endSchool"
+              />
+            </div>
+          </div>
         </fieldset>
       ))}
-      <button className="add-btn" onClick={addMoreEdu}>
+      <button className="button-clear add-btn" onClick={addMoreEdu}>
         Add
       </button>
     </div>

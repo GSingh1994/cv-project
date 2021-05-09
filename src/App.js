@@ -22,16 +22,21 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <Header headerValues={headerValues} />
-      <Experience experienceValues={experienceValues} />
-      <Education educationValues={educationValues} />
-      <div>
-        <CvPage
-          headerState={headerState}
-          expState={expState}
-          eduState={eduState}
-        />
+    <div>
+      {/* <div className="nav">CV Maker</div> */}
+      <div className="App">
+        <div className="form">
+          <Header headerValues={headerValues} />
+          <Experience experienceValues={experienceValues} />
+          <Education educationValues={educationValues} />
+        </div>
+        <div className="cv">
+          <CvPage
+            headerState={headerState}
+            expState={expState}
+            eduState={eduState}
+          />
+        </div>
       </div>
     </div>
   );

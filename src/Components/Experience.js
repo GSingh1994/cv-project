@@ -1,15 +1,8 @@
 import { useState, useEffect } from "react";
+import expLogo from "../assets/exp.svg";
 
 const Experience = ({ experienceValues }) => {
-  const [inputFields, setInputFields] = useState([
-    {
-      employer: "",
-      jobTitle: "",
-      startJob: "",
-      endJob: "",
-      jobDuties: "",
-    },
-  ]);
+  const [inputFields, setInputFields] = useState([]);
 
   const handleChange = (e, index) => {
     const { name, value } = e.target;
@@ -31,6 +24,8 @@ const Experience = ({ experienceValues }) => {
         startJob: "",
         endJob: "",
         jobDuties: "",
+        city: "",
+        province: "",
       },
     ]);
   };
@@ -43,11 +38,14 @@ const Experience = ({ experienceValues }) => {
 
   return (
     <div className="Experience">
-      <h2 className="heading">Work Experience</h2>
+      <div className="logo">
+        <img src={expLogo} alt="" />
+        <h1 className="heading">Work Experience</h1>
+      </div>
       {inputFields.map((inputField, index) => (
         <fieldset className="exp-field" key={index}>
           <button
-            className="button button-clear delete-btn"
+            className="delete-btn button-clear"
             onClick={() => removeExp(index)}
           >
             DELETE
@@ -71,34 +69,50 @@ const Experience = ({ experienceValues }) => {
               type="text"
             />
           </label>
+          <div className="form-location">
+            <div>
+              <label htmlFor="city">City</label>
+              <input
+                name="city"
+                value={inputField.city}
+                onChange={(e) => handleChange(e, index)}
+                type="text"
+              />
+            </div>
+            <div>
+              <label htmlFor="province">Province</label>
+              <input
+                name="province"
+                value={inputField.province}
+                onChange={(e) => handleChange(e, index)}
+                type="text"
+              />
+            </div>
+          </div>
+          <div className="form-time">
+            <div>
+              <label htmlFor="startJob">Start date</label>
+              <input
+                onChange={(e) => handleChange(e, index)}
+                type="month"
+                name="startJob"
+                value={inputField.startJob}
+              />
+            </div>
 
-          <div id="date">
-            <label htmlFor="startJob">From:</label>
-            <input
-              onChange={(e) => handleChange(e, index)}
-              type="month"
-              name="startJob"
-              value={inputField.startJob}
-            />
+            <div>
+              <label htmlFor="endJob">End date</label>
+              <input
+                onChange={(e) => handleChange(e, index)}
+                type="month"
+                name="endJob"
+                value={inputField.endJob}
+              />
+            </div>
           </div>
-          <div id="date">
-            <label htmlFor="endJob">To:</label>
-            <input
-              onChange={(e) => handleChange(e, index)}
-              type="month"
-              name="endJob"
-              value={inputField.endJob}
-            />
-          </div>
-          <label htmlFor="jobDuties">jobDuties</label>
-          <textarea
-            name="jobDuties"
-            onChange={(e) => handleChange(e, index)}
-            value={inputField.jobDuties}
-          ></textarea>
         </fieldset>
       ))}
-      <button className="add-btn" onClick={addMoreExp}>
+      <button className="button-clear add-btn" onClick={addMoreExp}>
         Add
       </button>
     </div>
@@ -106,3 +120,11 @@ const Experience = ({ experienceValues }) => {
 };
 
 export default Experience;
+{
+  /* <label htmlFor="jobDuties">jobDuties</label>
+          <textarea
+            name="jobDuties"
+            onChange={(e) => handleChange(e, index)}
+            value={inputField.jobDuties}
+          ></textarea> */
+}

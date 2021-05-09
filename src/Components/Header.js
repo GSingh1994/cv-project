@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import personLogo from "../assets/person.svg";
 
 const Header = ({ headerValues }) => {
   const [values, setValues] = useState({
@@ -6,6 +7,7 @@ const Header = ({ headerValues }) => {
     website: "",
     address: "",
     email: "",
+    summary: "",
   });
 
   const handleChange = (e) => {
@@ -19,7 +21,10 @@ const Header = ({ headerValues }) => {
 
   return (
     <div className="Header">
-      <h2 className="heading">Personal details</h2>
+      <div className="logo">
+        <img src={personLogo} alt="" />
+        <h1 className="heading">Personal Details</h1>
+      </div>
       <fieldset>
         <label htmlFor="name">Name:</label>
         <input
@@ -52,6 +57,12 @@ const Header = ({ headerValues }) => {
           type="email"
           onChange={handleChange}
         />
+        <label htmlFor="summary">summary:</label>
+        <textarea
+          name="summary"
+          onChange={handleChange}
+          value={values.summary}
+        ></textarea>
       </fieldset>
     </div>
   );
