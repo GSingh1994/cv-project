@@ -8,17 +8,14 @@ body {
 }
 
 .App {
-  margin: 10rem 15rem;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  .form,
-  .cv {
-    width: 45%;
-  }
-  .cv {
-    position: fixed;
-    right: 15rem;
+  @media (min-width: 80rem) {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 4rem;
+    .form,
+    .cv {
+      width: 45%;
+    }
   }
   input,
   textarea {
@@ -28,6 +25,10 @@ body {
       border-color: $golden;
     }
   }
+  input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-right: 0.5rem;
+  }
   label {
     font-size: 2rem;
     letter-spacing: 0.1rem;
@@ -35,7 +36,11 @@ body {
   .heading {
     color: $golden;
     letter-spacing: 0.1rem;
+    @media (max-width: 40rem) {
+      font-size: 2rem;
+    }
   }
+
   .edu-field,
   .exp-field {
     position: relative;
@@ -56,6 +61,10 @@ body {
     margin: 0 auto;
     color: $golden;
     border: 1px solid $golden;
+    @media (max-width: 40rem) {
+      padding: 0.7rem;
+      font-size: 1.2rem;
+    }
     transition: 0.3s all ease;
     &:hover {
       background-color: $golden;
@@ -65,13 +74,12 @@ body {
 }
 
 .nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
   text-align: center;
   padding: 2rem;
-  font-weight: bold;
-  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-size: 4rem;
+  background-color: $black;
+  filter: saturate(150%);
 }
 
 .Experience,
@@ -84,19 +92,30 @@ body {
   .logo {
     display: flex;
     gap: 1rem;
+    margin-left: 2rem;
+    @media (max-width: 40rem) {
+      justify-content: center;
+      margin-left: 0;
+    }
     img {
       width: 3.5rem;
       filter: invert(100%);
-      margin-left: 2rem;
     }
   }
   .form-time,
   .form-location {
     display: flex;
+
     align-items: center;
     justify-content: space-between;
     div {
       width: 40%;
+    }
+    @media (max-width: 40rem) {
+      display: block;
+      div {
+        width: 100%;
+      }
     }
   }
 }

@@ -9,6 +9,9 @@ const Experience = ({ experienceValues }) => {
     const values = [...inputFields];
     values[index][name] = value;
     setInputFields(values);
+    if (e.target.checked) {
+      values[index].endJob = "current";
+    }
   };
 
   useEffect(() => {
@@ -23,7 +26,6 @@ const Experience = ({ experienceValues }) => {
         jobTitle: "",
         startJob: "",
         endJob: "",
-        jobDuties: "",
         city: "",
         province: "",
       },
@@ -110,6 +112,16 @@ const Experience = ({ experienceValues }) => {
               />
             </div>
           </div>
+          <div className="float-right">
+            <input
+              onChange={(e) => handleChange(e, index)}
+              type="checkbox"
+              id="workHere"
+            />
+            <label className="label-inline" htmlfor="workHere">
+              Currently work here
+            </label>
+          </div>
         </fieldset>
       ))}
       <button className="button-clear add-btn" onClick={addMoreExp}>
@@ -120,11 +132,3 @@ const Experience = ({ experienceValues }) => {
 };
 
 export default Experience;
-{
-  /* <label htmlFor="jobDuties">jobDuties</label>
-          <textarea
-            name="jobDuties"
-            onChange={(e) => handleChange(e, index)}
-            value={inputField.jobDuties}
-          ></textarea> */
-}

@@ -1,5 +1,5 @@
 import "./App.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./Components/Header";
 import Experience from "./Components/Experience";
 import Education from "./Components/Education";
@@ -21,10 +21,23 @@ const App = () => {
     setEduState(values);
   };
 
+  //Check screen resize
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1200);
+  useEffect(() => {
+    window.addEventListener(
+      "resize",
+      () => {
+        const ismobile = window.innerWidth < 1200;
+        if (ismobile !== isMobile) setIsMobile(ismobile);
+      },
+      false
+    );
+  }, [isMobile]);
+
   return (
     <div>
-      {/* <div className="nav">CV Maker</div> */}
-      <div className="App">
+      <div className="nav">Easy CV</div>
+      <div className={isMobile ? "container App" : "App"}>
         <div className="form">
           <Header headerValues={headerValues} />
           <Experience experienceValues={experienceValues} />

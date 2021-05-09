@@ -3,10 +3,14 @@ import eduLogo from "../assets/edu.svg";
 
 const Education = ({ educationValues }) => {
   const [inputFields, setInputFields] = useState([]);
+
   const handleChange = (e, index) => {
     const { name, value } = e.target;
     const values = [...inputFields];
     values[index][name] = value;
+    if (e.target.checked) {
+      values[index].endSchool = "current";
+    }
     setInputFields(values);
   };
 
@@ -100,6 +104,16 @@ const Education = ({ educationValues }) => {
                 name="endSchool"
               />
             </div>
+          </div>
+          <div className="float-right">
+            <input
+              onChange={(e) => handleChange(e, index)}
+              type="checkbox"
+              id="studyHere"
+            />
+            <label className="label-inline" htmlfor="studyHere">
+              Currently study here
+            </label>
           </div>
         </fieldset>
       ))}
