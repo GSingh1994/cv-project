@@ -1,20 +1,30 @@
-$black: #20252b;
-$white: #ffffff;
-$golden: #ffd600;
+@import "cv";
 
 body {
   background-color: $black;
   color: $white;
 }
 
+.nav {
+  text-align: center;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  font-size: 4rem;
+  background-color: rgba(32, 37, 43, 0.5);
+}
+
 .App {
   @media (min-width: 80rem) {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 0 4rem;
     .form,
     .cv {
       width: 45%;
+    }
+    .cv {
+      position: fixed;
+      right: 4rem;
     }
   }
   input,
@@ -67,14 +77,6 @@ body {
       color: $black;
     }
   }
-}
-
-.nav {
-  text-align: center;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  font-size: 4rem;
-  background-color: rgba(32, 37, 43, 0.5);
 }
 
 .Skills,
@@ -137,59 +139,4 @@ body {
 }
 .Education {
   margin-top: 2rem;
-}
-
-.CvPage {
-  margin-top: 1rem;
-  background-color: $white;
-  color: black;
-  .cv-header {
-    background-color: #373d48;
-    color: $white;
-    padding: 2.3rem 5rem;
-    h1 {
-      font-weight: bold;
-      letter-spacing: 0.1rem;
-      font-size: 4.3rem;
-      margin: 1rem 0 2rem 0;
-    }
-    .personal-info {
-      display: flex;
-      margin-bottom: 0.8rem;
-      img {
-        width: 2rem;
-        filter: invert(100%);
-        margin-right: 1rem;
-      }
-    }
-  }
-  .cv-body {
-    padding: 2rem 5rem;
-    h1 {
-      border-bottom: 1px solid #373d48;
-      padding-bottom: 0.5rem;
-      font-size: 2.4rem;
-    }
-    .cv-experience,
-    .cv-education {
-      display: grid;
-      grid-template-columns: 2fr 2fr 2fr;
-      margin-bottom: 2rem;
-      .cv-location {
-        text-align: right;
-      }
-    }
-    .cv-skills {
-      ul {
-        margin: 0;
-      }
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-  }
-}
-
-.bold {
-  font-weight: bold;
 }

@@ -25,6 +25,7 @@ const CvPage = ({ headerState, expState, eduState, skillsState }) => {
       </div>
 
       <div className="cv-body">
+        <h1>Professinal Summary</h1>
         <div className="summary">{headerState.summary}</div>
         <h1>Work History</h1>
         {expState.map((exp) => (
@@ -72,11 +73,11 @@ const CvPage = ({ headerState, expState, eduState, skillsState }) => {
           ))}
         </div>
       </div>
+      <div className="cv-footer">
+        <div>{headerState.name}</div>
+      </div>
     </div>
   );
 };
 
 export default CvPage;
-{
-  /* <div>Job duties:{exp.jobDuties}</div> */
-}
