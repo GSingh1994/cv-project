@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Header from "./Components/Header";
 import Experience from "./Components/Experience";
 import Education from "./Components/Education";
+import Skills from "./Components/Skills";
 import CvPage from "./Components/CvPage";
 
 const App = () => {
@@ -19,6 +20,11 @@ const App = () => {
   const [eduState, setEduState] = useState([]);
   const educationValues = (values) => {
     setEduState(values);
+  };
+
+  const [skillsState, setSkillsState] = useState([]);
+  const skillsvalues = (values) => {
+    setSkillsState(values);
   };
 
   //Check screen resize
@@ -42,12 +48,14 @@ const App = () => {
           <Header headerValues={headerValues} />
           <Experience experienceValues={experienceValues} />
           <Education educationValues={educationValues} />
+          <Skills skillsvalues={skillsvalues} />
         </div>
         <div className="cv">
           <CvPage
             headerState={headerState}
             expState={expState}
             eduState={eduState}
+            skillsState={skillsState}
           />
         </div>
       </div>

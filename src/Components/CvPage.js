@@ -3,7 +3,7 @@ import gitHubIcon from "../assets/github.svg";
 import locationIcon from "../assets/location.svg";
 const uniqid = require("uniqid");
 
-const CvPage = ({ headerState, expState, eduState }) => {
+const CvPage = ({ headerState, expState, eduState, skillsState }) => {
   return (
     <div className="CvPage">
       <div className="cv-header">
@@ -63,6 +63,14 @@ const CvPage = ({ headerState, expState, eduState }) => {
             </div>
           </div>
         ))}
+        <h1>Skills</h1>
+        <div className="cv-skills">
+          {skillsState.map((skill) => (
+            <ul key={uniqid()}>
+              <li>{skill.skill}</li>
+            </ul>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -52,25 +52,22 @@ const Experience = ({ experienceValues }) => {
           >
             DELETE
           </button>
-          <label htmlFor="employer">
-            Employer
-            <input
-              name="employer"
-              value={inputField.employer}
-              onChange={(e) => handleChange(e, index)}
-              type="text"
-            />
-          </label>
 
-          <label htmlFor="jobTitle">
-            jobTitle
-            <input
-              name="jobTitle"
-              value={inputField.jobTitle}
-              onChange={(e) => handleChange(e, index)}
-              type="text"
-            />
-          </label>
+          <label htmlFor="employer">Employer</label>
+          <input
+            name="employer"
+            value={inputField.employer}
+            onChange={(e) => handleChange(e, index)}
+            type="text"
+          />
+
+          <label htmlFor="jobTitle">Job title</label>
+          <input
+            name="jobTitle"
+            value={inputField.jobTitle}
+            onChange={(e) => handleChange(e, index)}
+            type="text"
+          />
           <div className="form-location">
             <div>
               <label htmlFor="city">City</label>
@@ -118,7 +115,7 @@ const Experience = ({ experienceValues }) => {
               type="checkbox"
               id="workHere"
             />
-            <label className="label-inline" htmlfor="workHere">
+            <label className="label-inline" htmlFor="workHere">
               Currently work here
             </label>
           </div>

@@ -26,7 +26,7 @@ const Header = ({ headerValues }) => {
         <h1 className="heading">Personal Details</h1>
       </div>
       <fieldset>
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="name">Name</label>
         <input
           name="name"
           value={values.name}
@@ -34,7 +34,7 @@ const Header = ({ headerValues }) => {
           type="text"
         />
 
-        <label htmlFor="website">Website:</label>
+        <label htmlFor="website">Website</label>
         <input
           name="website"
           value={values.website}
@@ -42,7 +42,7 @@ const Header = ({ headerValues }) => {
           type="text"
         />
 
-        <label htmlFor="address">address:</label>
+        <label htmlFor="address">address</label>
         <input
           name="address"
           value={values.address}
@@ -50,14 +50,14 @@ const Header = ({ headerValues }) => {
           type="text"
         />
 
-        <label htmlFor="email">email:</label>
+        <label htmlFor="email">email</label>
         <input
           name="email"
           value={values.email}
           type="email"
           onChange={handleChange}
         />
-        <label htmlFor="summary">summary:</label>
+        <label htmlFor="summary">summary</label>
         <textarea
           name="summary"
           onChange={handleChange}

@@ -25,24 +25,20 @@ body {
       border-color: $golden;
     }
   }
+  .label-inline {
+    font-size: 1.4rem;
+  }
   input[type="checkbox"] {
-    transform: scale(1.5);
     margin-right: 0.5rem;
   }
   label {
     font-size: 2rem;
     letter-spacing: 0.1rem;
   }
-  .heading {
-    color: $golden;
-    letter-spacing: 0.1rem;
-    @media (max-width: 40rem) {
-      font-size: 2rem;
-    }
-  }
 
   .edu-field,
-  .exp-field {
+  .exp-field,
+  .skill-field {
     position: relative;
   }
   .delete-btn {
@@ -78,13 +74,14 @@ body {
   padding: 2rem;
   margin-bottom: 2rem;
   font-size: 4rem;
-  background-color: $black;
-  filter: saturate(150%);
+  background-color: rgba(32, 37, 43, 0.5);
 }
 
+.Skills,
 .Experience,
 .Education,
 .Header {
+  background-color: rgba(32, 37, 43, 0.5);
   border: 1px dotted rgba(255, 255, 255, 0.5);
   border-radius: 3px;
   margin-bottom: 4rem;
@@ -92,14 +89,27 @@ body {
   .logo {
     display: flex;
     gap: 1rem;
+    align-items: center;
     margin-left: 2rem;
     @media (max-width: 40rem) {
       justify-content: center;
       margin-left: 0;
+      margin: 1rem 0 2rem 0;
     }
     img {
-      width: 3.5rem;
-      filter: invert(100%);
+      width: 3rem;
+      @media (max-width: 40rem) {
+        width: 2rem;
+      }
+      filter: invert(75%) sepia(95%) saturate(1326%) hue-rotate(360deg)
+        brightness(104%) contrast(103%);
+    }
+    .heading {
+      color: $golden;
+      letter-spacing: 0.1rem;
+      @media (max-width: 40rem) {
+        font-size: 2rem;
+      }
     }
   }
   .form-time,
@@ -158,6 +168,7 @@ body {
     h1 {
       border-bottom: 1px solid #373d48;
       padding-bottom: 0.5rem;
+      font-size: 2.4rem;
     }
     .cv-experience,
     .cv-education {
@@ -167,6 +178,14 @@ body {
       .cv-location {
         text-align: right;
       }
+    }
+    .cv-skills {
+      ul {
+        margin: 0;
+      }
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
   }
 }

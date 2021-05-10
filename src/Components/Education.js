@@ -111,7 +111,7 @@ const Education = ({ educationValues }) => {
               type="checkbox"
               id="studyHere"
             />
-            <label className="label-inline" htmlfor="studyHere">
+            <label className="label-inline" htmlFor="studyHere">
               Currently study here
             </label>
           </div>
