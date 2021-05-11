@@ -26,16 +26,13 @@ $golden: #ffd600;
     .personal-info {
       display: flex;
       margin-bottom: 0.8rem;
-      @media (max-width: 40rem) {
-        margin-bottom: 0.4rem;
-      }
       img {
         width: 2rem;
         filter: invert(100%);
         margin-right: 1rem;
       }
       @media (max-width: 40rem) {
-        margin-bottom: 0.4rem;
+        margin-bottom: 0.2rem;
         img {
           width: 1.3rem;
         }
@@ -56,7 +53,7 @@ $golden: #ffd600;
       margin-top: 4rem;
       @media (max-width: 40rem) {
         margin-top: 2rem;
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
     }
     .cv-experience,
@@ -83,7 +80,7 @@ $golden: #ffd600;
   @media (max-width: 40rem) {
     .footer-email,
     .footer-page {
-      margin-left: 8rem;
+      margin-left: 2rem;
     }
     font-size: 1rem;
     position: absolute;
