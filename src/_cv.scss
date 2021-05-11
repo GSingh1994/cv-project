@@ -5,6 +5,7 @@ $golden: #ffd600;
 .CvPage {
   background-color: $white;
   color: black;
+  position: relative;
   .cv-header {
     background-color: #373d48;
     color: $white;
@@ -48,7 +49,29 @@ $golden: #ffd600;
     }
   }
 }
-
+.cv-footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 3rem;
+  opacity: 0.7;
+  padding-bottom: 1rem;
+}
 .bold {
   font-weight: bold;
+}
+
+.download-btn {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  button {
+    border: 1px solid $golden;
+    background-color: transparent;
+    color: $golden;
+    transition: 0.2s all ease-in;
+    &:hover {
+      background-color: $golden;
+      color: $black;
+    }
+  }
 }

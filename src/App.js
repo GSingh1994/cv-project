@@ -43,6 +43,7 @@ const App = () => {
   return (
     <div>
       <div className="nav">Easy CV</div>
+
       <div className={isMobile ? "container App" : "App"}>
         <div className="form">
           <Header headerValues={headerValues} />

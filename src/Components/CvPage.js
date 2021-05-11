@@ -1,11 +1,36 @@
+import { usePDF } from "@react-pdf/renderer";
+import PdfCv from "./PdfCv";
+import { useEffect } from "react";
 import mailIcon from "../assets/mail.svg";
 import gitHubIcon from "../assets/github.svg";
 import locationIcon from "../assets/location.svg";
 const uniqid = require("uniqid");
 
 const CvPage = ({ headerState, expState, eduState, skillsState }) => {
+  const [instance, updateInstance] = usePDF({
+    document: (
+      <PdfCv
+        headerState={headerState}
+        expState={expState}
+        eduState={eduState}
+        skillsState={skillsState}
+      />
+    ),
+  });
+  useEffect(() => {
+    updateInstance();
+  }, [headerState]);
+
   return (
     <div className="CvPage">
+      <a
+        className="download-btn"
+        href={instance.url}
+        download={headerState.name}
+      >
+        <button>Download</button>
+      </a>
+
       <div className="cv-header">
         <h1>{headerState.name}</h1>
 
@@ -50,7 +75,7 @@ const CvPage = ({ headerState, expState, eduState, skillsState }) => {
         {eduState.map((edu) => (
           <div key={uniqid()} className="cv-education">
             <div>
-              <div>{edu.startSchool}</div>
+              <div>{edu.startSchool} -</div>
               <div>{edu.endSchool}</div>
             </div>
 
@@ -75,6 +100,8 @@ const CvPage = ({ headerState, expState, eduState, skillsState }) => {
       </div>
       <div className="cv-footer">
         <div>{headerState.name}</div>
+        <div>{headerState.email}</div>
+        <div>1/1</div>
       </div>
     </div>
   );
