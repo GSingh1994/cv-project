@@ -23,13 +23,16 @@ const CvPage = ({ headerState, expState, eduState, skillsState }) => {
 
   return (
     <div className="CvPage">
-      <a
-        className="download-btn"
-        href={instance.url}
-        download={headerState.name}
-      >
-        <button>Download</button>
-      </a>
+      <div className="mobile-nav">
+        <button className="preview-btn">Preview</button>
+        <a
+          className="download-btn"
+          href={instance.url}
+          download={headerState.name}
+        >
+          <button>Download</button>
+        </a>
+      </div>
 
       <div className="cv-header">
         <h1>{headerState.name}</h1>

@@ -8,24 +8,16 @@ import CvPage from "./Components/CvPage";
 
 const App = () => {
   const [headerState, setheaderState] = useState([]);
-  const headerValues = (values) => {
-    setheaderState({ ...values });
-  };
+  const headerValues = (values) => setheaderState({ ...values });
 
   const [expState, setExpState] = useState([]);
-  const experienceValues = (values) => {
-    setExpState(values);
-  };
+  const experienceValues = (values) => setExpState(values);
 
   const [eduState, setEduState] = useState([]);
-  const educationValues = (values) => {
-    setEduState(values);
-  };
+  const educationValues = (values) => setEduState(values);
 
   const [skillsState, setSkillsState] = useState([]);
-  const skillsvalues = (values) => {
-    setSkillsState(values);
-  };
+  const skillsvalues = (values) => setSkillsState(values);
 
   //Check screen resize
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1200);
@@ -43,7 +35,7 @@ const App = () => {
   return (
     <div>
       <div className="nav">Easy CV</div>
-
+      {/* To make responsive on mobile */}
       <div className={isMobile ? "container App" : "App"}>
         <div className="form">
           <Header headerValues={headerValues} />
@@ -51,6 +43,7 @@ const App = () => {
           <Education educationValues={educationValues} />
           <Skills skillsvalues={skillsvalues} />
         </div>
+
         <div className="cv">
           <CvPage
             headerState={headerState}

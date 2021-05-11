@@ -6,8 +6,6 @@ import {
   Image,
   Document,
   StyleSheet,
-  Font,
-  Svg,
 } from "@react-pdf/renderer";
 import mailIcon from "../assets/mail.svg";
 import gitHubIcon from "../assets/github.svg";
