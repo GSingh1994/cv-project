@@ -10,29 +10,54 @@ $golden: #ffd600;
     background-color: #373d48;
     color: $white;
     padding: 2.3rem 5rem;
+    @media (max-width: 40rem) {
+      padding: 1rem 1rem;
+      font-size: 1.3rem;
+    }
     h1 {
       font-weight: bold;
       letter-spacing: 0.1rem;
       font-size: 4.3rem;
       margin: 1rem 0 2rem 0;
+      @media (max-width: 40rem) {
+        font-size: 3rem;
+      }
     }
     .personal-info {
       display: flex;
       margin-bottom: 0.8rem;
+      @media (max-width: 40rem) {
+        margin-bottom: 0.4rem;
+      }
       img {
         width: 2rem;
         filter: invert(100%);
         margin-right: 1rem;
       }
+      @media (max-width: 40rem) {
+        margin-bottom: 0.4rem;
+        img {
+          width: 1.3rem;
+        }
+      }
     }
   }
   .cv-body {
     padding: 0 5rem 4rem 5rem;
+    @media (max-width: 40rem) {
+      padding: 0 1.5rem 1.5rem 1.5rem;
+      overflow-wrap: break-word;
+      font-size: 1.3rem;
+    }
     h1 {
       border-bottom: 1px solid #373d48;
       padding-bottom: 0.5rem;
       font-size: 2.4rem;
       margin-top: 4rem;
+      @media (max-width: 40rem) {
+        margin-top: 2rem;
+        font-size: 2rem;
+      }
     }
     .cv-experience,
     .cv-education,
@@ -55,20 +80,29 @@ $golden: #ffd600;
   margin: 2rem 3rem;
   opacity: 0.7;
   padding-bottom: 1rem;
+  @media (max-width: 40rem) {
+    .footer-email,
+    .footer-page {
+      margin-left: 8rem;
+    }
+    font-size: 1rem;
+    position: absolute;
+    bottom: 0;
+  }
 }
 .bold {
   font-weight: bold;
 }
 
 .mobile-nav {
-  @media (max-width: 40rem) {
+  @media (max-width: 80rem) {
     display: flex;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-    background-color: rgba(32, 37, 43, 0.7);
+    background-color: rgba(32, 37, 43, 0.9);
     backdrop-filter: blur(2px);
     justify-content: space-around;
     button {
@@ -77,7 +111,7 @@ $golden: #ffd600;
     }
   }
 
-  @media (min-width: 120rem) {
+  @media (min-width: 80rem) {
     .preview-btn {
       display: none;
     }
@@ -96,5 +130,25 @@ $golden: #ffd600;
         }
       }
     }
+  }
+}
+
+.hideCv {
+  @media (max-width: 80rem) {
+    display: none;
+  }
+}
+
+.mobileCv {
+  @media (max-width: 80rem) {
+    position: fixed;
+    top: 3rem;
+    left: 0;
+    margin-right: 2rem;
+    bottom: 5rem;
+    background-color: $white;
+    width: 100vw;
+    min-height: 50vh;
+    max-height: 87vh;
   }
 }

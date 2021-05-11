@@ -62,6 +62,7 @@ const Header = ({ headerValues }) => {
           name="summary"
           onChange={handleChange}
           value={values.summary}
+          placeholder="Your professional summary..."
         ></textarea>
       </fieldset>
     </div>

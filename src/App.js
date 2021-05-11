@@ -50,6 +50,7 @@ const App = () => {
             expState={expState}
             eduState={eduState}
             skillsState={skillsState}
+            isMobile={isMobile}
           />
         </div>
       </div>
