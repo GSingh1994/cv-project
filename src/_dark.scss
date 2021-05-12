@@ -1,15 +1,12 @@
 @import "cv";
 $blue: #241d2c;
 .nav {
-  //   position: fixed;
-  //   top: 0;
-  //   width: 100vw;
   display: flex;
   justify-content: space-between;
   text-align: center;
   padding: 1rem 4rem;
   @media (max-width: 40rem) {
-    padding: 1rem;
+    padding: 0.5rem;
   }
   margin-bottom: 4rem;
   font-size: 4rem;
@@ -72,6 +69,10 @@ body.dark-mode {
     &:last-child {
       color: lightblue;
     }
+  }
+
+  .mobile-nav {
+    background-color: #161b22;
   }
 }
 
