@@ -1,17 +1,5 @@
 @import "cv";
-
-body {
-  background-color: $black;
-  color: $white;
-}
-
-.nav {
-  text-align: center;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  font-size: 4rem;
-  background-color: rgba(32, 37, 43, 0.5);
-}
+@import "dark";
 
 .App {
   @media (min-width: 80rem) {
@@ -85,7 +73,6 @@ body {
 .Education,
 .Header {
   background-color: rgba(32, 37, 43, 0.5);
-  border: 1px dotted rgba(255, 255, 255, 0.5);
   border-radius: 3px;
   margin-bottom: 4rem;
   padding-bottom: 3rem;

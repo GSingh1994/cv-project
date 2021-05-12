@@ -1,9 +1,12 @@
-$black: #20252b;
-$white: #ffffff;
+// $black: #20252b;
+$black: #10171d;
+// $white: #ffffff;
+$white: #eeeeee;
 $golden: #ffd600;
 
 .CvPage {
   background-color: $white;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   color: black;
   position: relative;
   .cv-header {

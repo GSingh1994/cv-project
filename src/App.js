@@ -5,6 +5,7 @@ import Experience from "./Components/Experience";
 import Education from "./Components/Education";
 import Skills from "./Components/Skills";
 import CvPage from "./Components/CvPage";
+import DarkMode from "./Components/DarkMode";
 
 const App = () => {
   const [headerState, setheaderState] = useState([]);
@@ -34,7 +35,10 @@ const App = () => {
 
   return (
     <div>
-      <div className="nav">Easy CV</div>
+      <div className="nav">
+        Easy CV
+        <DarkMode />
+      </div>
       {/* To make responsive on mobile */}
       <div className={isMobile ? "container App" : "App"}>
         <div className="form">

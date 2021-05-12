@@ -2,7 +2,6 @@ import "../node_modules/milligram/dist/milligram.min.css";
 import "../node_modules/normalize.css/normalize.css";
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
