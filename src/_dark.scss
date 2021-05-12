@@ -7,10 +7,12 @@ $blue: #241d2c;
   display: flex;
   justify-content: space-between;
   text-align: center;
-  padding: 2rem;
-  margin-bottom: 2rem;
+  padding: 1rem 4rem;
+  @media (max-width: 40rem) {
+    padding: 1rem;
+  }
+  margin-bottom: 4rem;
   font-size: 4rem;
-  // background-color: rgba(32, 37, 43, 0.5);
 }
 
 body.light-mode {
@@ -62,7 +64,7 @@ body.dark-mode {
   transition: background-color 0.3s ease;
 
   .nav {
-    background-color: #1b2938;
+    background-color: #161b22;
   }
 
   .dark-mode-toggle > button {
