@@ -39,6 +39,9 @@ const CvPage = ({ headerState, expState, eduState, skillsState }) => {
       </div>
 
       <div className={showCv ? "mobileCv" : "hideCv"}>
+        <button onClick={() => setShowCv(!showCv)} className="close-btn">
+          X
+        </button>
         <div className="cv-header">
           <h1>{headerState.name}</h1>
 
