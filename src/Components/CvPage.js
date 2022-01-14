@@ -1,53 +1,120 @@
-import { ImMail4 } from "react-icons/im";
-import { AiFillGithub } from "react-icons/ai";
-import { TiLocationOutline } from "react-icons/ti";
+import { usePDF } from "@react-pdf/renderer";
+import PdfCv from "./PdfCv";
+import { useEffect, useState } from "react";
+import mailIcon from "../assets/mail.svg";
+import gitHubIcon from "../assets/github.svg";
+import locationIcon from "../assets/location.svg";
 const uniqid = require("uniqid");
 
-const CvPage = ({ headerState, expState, eduState }) => {
+const CvPage = ({ headerState, expState, eduState, skillsState }) => {
+  const [instance, updateInstance] = usePDF({
+    document: (
+      <PdfCv
+        headerState={headerState}
+        expState={expState}
+        eduState={eduState}
+        skillsState={skillsState}
+      />
+    ),
+  });
+  useEffect(() => {
+    updateInstance();
+  }, [headerState]);
+
+  const [showCv, setShowCv] = useState(false);
+
   return (
     <div className="CvPage">
-      <div className="cv-header">
-        <h1 className="name">{headerState.name}</h1>
-
-        <div className="website">
-          <AiFillGithub /> {headerState.website}
-        </div>
-
-        <div className="address">
-          <TiLocationOutline />
-          {headerState.address}
-        </div>
-
-        <div className="email">
-          <ImMail4 />
-          {headerState.email}
-        </div>
+      <div className="mobile-nav">
+        <button onClick={() => setShowCv(!showCv)} className="preview-btn">
+          Preview
+        </button>
+        <a
+          className="download-btn"
+          href={instance.url}
+          download={headerState.name}
+        >
+          <button>Download</button>
+        </a>
       </div>
 
-      {expState.map((exp) => (
-        <div key={uniqid()} className="cv-experience-section">
-          <h1>Work Experience</h1>
-          <div className="employer"> employer: {exp.employer}</div>
+      <div className={showCv ? "mobileCv" : "hideCv"}>
+        <button onClick={() => setShowCv(!showCv)} className="close-btn">
+          X
+        </button>
+        <div className="cv-header">
+          <h1>{headerState.name}</h1>
 
-          <div className="jobTitle">jobTitle: {exp.jobTitle}</div>
+          <div className="personal-info">
+            <img src={gitHubIcon} alt="gitHub icon" /> {headerState.website}
+          </div>
 
-          <div className="startJob">startJob: {exp.startJob}</div>
+          <div className="personal-info">
+            <img src={locationIcon} alt="location icon" />
+            {headerState.address}
+          </div>
 
-          <div className="endJob">endJob: {exp.endJob}</div>
+          <div className="personal-info">
+            <img src={mailIcon} alt="mail icon" />
+            {headerState.email}
+          </div>
         </div>
-      ))}
-      {eduState.map((edu) => (
-        <div key={uniqid()} className="cv-experience-section">
+
+        <div className="cv-body">
+          <h1>Professinal Summary</h1>
+          <div className="summary">{headerState.summary}</div>
+          <h1>Work History</h1>
+          {expState.map((exp) => (
+            <div key={uniqid()} className="cv-experience">
+              <div>
+                <div>{exp.startJob} -</div>
+                <div>{exp.endJob}</div>
+              </div>
+
+              <div>
+                <div className="bold">{exp.employer}</div>
+                <div>{exp.jobTitle}</div>
+              </div>
+
+              <div className="cv-location">
+                <div>{exp.city},</div>
+                <div>{exp.province}</div>
+              </div>
+            </div>
+          ))}
           <h1>Education</h1>
-          <div className="employer"> employer: {edu.school}</div>
+          {eduState.map((edu) => (
+            <div key={uniqid()} className="cv-education">
+              <div>
+                <div>{edu.startSchool} -</div>
+                <div>{edu.endSchool}</div>
+              </div>
 
-          <div className="jobTitle">jobTitle: {edu.degree}</div>
-
-          <div className="startJob">startJob: {edu.startSchool}</div>
-
-          <div className="endJob">endJob: {edu.endSchool}</div>
+              <div>
+                <div className="bold">{edu.school}</div>
+                <div>{edu.degree}</div>
+              </div>
+              <div className="cv-location">
+                <div>{edu.city},</div>
+                <div>{edu.province}</div>
+              </div>
+            </div>
+          ))}
+          <h1>Skills</h1>
+          <div className="cv-skills">
+            {skillsState.map((skill) => (
+              <ul key={uniqid()}>
+                <li>{skill.skill}</li>
+              </ul>
+            ))}
+          </div>
         </div>
-      ))}
+        <div className="cv-footer">
+          <div>{headerState.name}</div>
+          <div className="footer-email">{headerState.email}</div>
+          <div className="footer-page">1/1</div>
+        </div>
+      </div>
     </div>
   );
 };

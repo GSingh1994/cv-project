@@ -1,87 +1,130 @@
-* {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  text-decoration: none;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
+@import "cv";
+@import "dark";
 
-html,
-body,
-pre,
-code,
-kbd,
-samp {
-  font-family: "Press Start 2P", cursive;
-}
-.Form {
-  .nes-container {
-    margin: 2rem;
-    width: 40rem;
+.App {
+  @media (min-width: 80rem) {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 4rem;
+    .form,
+    .cv {
+      width: 45%;
+    }
+    .cv {
+      position: fixed;
+      right: 4rem;
+    }
+  }
+
+  input,
+  textarea {
+    color: $white;
+    margin-bottom: 1.5rem;
+    &:focus {
+      border-color: $golden;
+    }
+  }
+  .label-inline {
+    font-size: 1.4rem;
+  }
+  input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+  label {
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .edu-field,
+  .exp-field,
+  .skill-field {
+    position: relative;
+  }
+  .delete-btn {
+    position: absolute;
+    right: 0.3rem;
+    top: 0;
+    color: #f55c47;
+    transition: 0.3s all ease;
+    &:hover {
+      color: #fb3640;
+    }
+  }
+  .add-btn {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    color: $golden;
+    border: 1px solid $golden;
+    @media (max-width: 40rem) {
+      padding: 0.7rem;
+      font-size: 1.2rem;
+    }
+    transition: 0.3s all ease;
+    &:hover {
+      background-color: $golden;
+      color: $black;
+    }
   }
 }
-// .Form {
-//   width: 30rem;
-//   background-color: #f8f5f1;
-//   text-align: center;
-//   padding: 0 1rem;
-//   border-radius: 4px;
-//   margin: 2rem;
-//   border: 2px solid black;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   .Header,
-//   .Experience,
-//   .Education {
-//     display: flex;
-//     flex-direction: column;
-//     gap: 0.5rem;
-//     div {
-//       display: flex;
-//       justify-content: space-between;
-//     }
-//   }
-//   button {
-//     padding: 0.4rem;
-//     font-size: 1.1rem;
-//     width: 7rem;
-//     margin: 0.5rem auto;
-//   }
-//   input {
-//     border: dashed 0.5px;
-//     outline: none;
-//     font-size: 1.2rem;
-//   }
-//   label {
-//     font-size: 1.2rem;
-//   }
-//   .heading {
-//     margin: 1rem 0;
-//   }
-// }
 
-// .CvPage {
-//   border: 1px solid red;
-//   width: 40rem;
-//   margin-top: 1rem;
-//   position: absolute;
-//   right: 2rem;
-//   top: 2rem;
-//   height: 40rem;
-//   .cv-header {
-//     background-color: black;
-//     color: white;
-//     padding: 2.5rem;
-//     div {
-//       margin: 0.5rem;
-//     }
-//     // .name {
-//     //   font-size: 2.5rem;
-//     //   font-weight: bold;
-//     // }
-//   }
-// }
+.Skills,
+.Experience,
+.Education,
+.Header {
+  background-color: #161b22;
+  border-radius: 3px;
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  .logo {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-left: 2rem;
+    @media (max-width: 40rem) {
+      justify-content: center;
+      margin-left: 0;
+      margin: 1rem 0 2rem 0;
+    }
+    img {
+      width: 3rem;
+      @media (max-width: 40rem) {
+        width: 2rem;
+      }
+      filter: invert(75%) sepia(95%) saturate(1326%) hue-rotate(360deg)
+        brightness(104%) contrast(103%);
+    }
+    .heading {
+      color: $golden;
+      letter-spacing: 0.1rem;
+      @media (max-width: 40rem) {
+        font-size: 2rem;
+      }
+    }
+  }
+  .form-time,
+  .form-location {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+    div {
+      width: 40%;
+    }
+    @media (max-width: 40rem) {
+      display: block;
+      div {
+        width: 100%;
+      }
+    }
+  }
+}
+.Header {
+  padding-bottom: 0;
+  fieldset {
+    padding-bottom: 0;
+  }
+}
+.Education {
+  margin-top: 2rem;
+}

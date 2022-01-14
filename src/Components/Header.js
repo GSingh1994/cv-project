@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import personLogo from "../assets/person.svg";
 
 const Header = ({ headerValues }) => {
   const [values, setValues] = useState({
@@ -6,6 +7,7 @@ const Header = ({ headerValues }) => {
     website: "",
     address: "",
     email: "",
+    summary: "",
   });
 
   const handleChange = (e) => {
@@ -19,57 +21,50 @@ const Header = ({ headerValues }) => {
 
   return (
     <div className="Header">
-      <div className="nes-field is-inline">
-        <label htmlFor="name">Name:</label>
+      <div className="logo">
+        <img src={personLogo} alt="" />
+        <h1 className="heading">Personal Details</h1>
+      </div>
+      <fieldset>
+        <label htmlFor="name">Name</label>
         <input
           name="name"
           value={values.name}
           onChange={handleChange}
           type="text"
-          // id="inline_field"
-          className="nes-input is-success"
-          placeholder="NES.css"
         />
-      </div>
 
-      <div className="nes-field is-inline">
-        <label htmlFor="website">Website:</label>
+        <label htmlFor="website">Website</label>
         <input
           name="website"
           value={values.website}
           onChange={handleChange}
           type="text"
-          // id="inline_field"
-          className="nes-input is-success"
-          placeholder="NES.css"
         />
-      </div>
 
-      <div className="nes-field is-inline">
-        <label htmlFor="address">address:</label>
+        <label htmlFor="address">address</label>
         <input
           name="address"
           value={values.address}
           onChange={handleChange}
           type="text"
-          // id="inline_field"
-          className="nes-input is-success"
-          placeholder="NES.css"
         />
-      </div>
 
-      <div className="nes-field is-inline">
-        <label htmlFor="email">email:</label>
+        <label htmlFor="email">email</label>
         <input
           name="email"
           value={values.email}
           type="email"
           onChange={handleChange}
-          // id="inline_field"
-          className="nes-input is-success"
-          placeholder="NES.css"
         />
-      </div>
+        <label htmlFor="summary">summary</label>
+        <textarea
+          name="summary"
+          onChange={handleChange}
+          value={values.summary}
+          placeholder="Your professional summary..."
+        ></textarea>
+      </fieldset>
     </div>
   );
 };
