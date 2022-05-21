@@ -1,11 +1,11 @@
-import "./App.scss";
-import { useState, useEffect } from "react";
-import Header from "./Components/Header";
-import Experience from "./Components/Experience";
-import Education from "./Components/Education";
-import Skills from "./Components/Skills";
-import CvPage from "./Components/CvPage";
-import DarkMode from "./Components/DarkMode";
+import './styles/App.scss';
+import { useState, useEffect } from 'react';
+import Header from './Components/Header';
+import Experience from './Components/Experience';
+import Education from './Components/Education';
+import Skills from './Components/Skills';
+import CvPage from './Components/CvPage';
+import DarkMode from './Components/DarkMode';
 
 const App = () => {
   const [headerState, setheaderState] = useState([]);
@@ -24,7 +24,7 @@ const App = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1200);
   useEffect(() => {
     window.addEventListener(
-      "resize",
+      'resize',
       () => {
         const ismobile = window.innerWidth < 1200;
         if (ismobile !== isMobile) setIsMobile(ismobile);
@@ -40,7 +40,7 @@ const App = () => {
         <DarkMode />
       </div>
       {/* To make responsive on mobile */}
-      <div className={isMobile ? "container App" : "App"}>
+      <div className={isMobile ? 'container App' : 'App'}>
         <div className="form">
           <Header headerValues={headerValues} />
           <Experience experienceValues={experienceValues} />
@@ -49,13 +49,7 @@ const App = () => {
         </div>
 
         <div className="cv">
-          <CvPage
-            headerState={headerState}
-            expState={expState}
-            eduState={eduState}
-            skillsState={skillsState}
-            isMobile={isMobile}
-          />
+          <CvPage headerState={headerState} expState={expState} eduState={eduState} skillsState={skillsState} isMobile={isMobile} />
         </div>
       </div>
     </div>
